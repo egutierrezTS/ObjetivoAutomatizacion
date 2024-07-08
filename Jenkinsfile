@@ -4,23 +4,23 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/tu-usuario/tu-repositorio.git'
+                git 'https://github.com/egutierrezTS/ObjetivoAutomatizacion'
             }
         }
         stage('Build') {
             steps {
-                sh './gradlew build' // o './mvnw clean install' si usas Maven
+                sh './gradlew build' 
             }
         }
         stage('Test') {
             steps {
-                sh './gradlew test' // o './mvnw test' si usas Maven
+                sh './gradlew test' 
             }
         }
         stage('Report') {
             steps {
                 publishHTML(target: [
-                    reportDir: 'build/reports/tests/test', // Ajusta la ruta según tu configuración
+                    reportDir: 'build/reports/tests/test', 
                     reportFiles: 'index.html',
                     reportName: 'Test Report'
                 ])
